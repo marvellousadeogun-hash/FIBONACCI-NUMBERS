@@ -1,22 +1,15 @@
-public class Main {
-    
-}
-function fibonacci(n) {
-  const sequence = [];
-  let a = 0n;
-  let b = 1n;
-  for (let i = 0; i < n; i++) {
-    sequence.push(a);
-    [a, b] = [b, a + b];
-  }
-  return sequence;
-}
+import java.math.BigInteger;
 
-function main() {
-  const numbers = fibonacci(100);
-  numbers.forEach((num, index) => {
-    console.log(`${index + 1}: ${num}`);
-  });
-}
+public class Fibonacci {
+    public static void main(String[] args) {
+        BigInteger previous = BigInteger.ZERO;
+        BigInteger current = BigInteger.ONE;
 
-main();
+        while (previous.compareTo(BigInteger.valueOf(100)) <= 0) {
+            System.out.print(previous + " ");
+            BigInteger next = previous.add(current);
+            previous = current;
+            current = next;
+        }
+    }
+}
